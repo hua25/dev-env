@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  local-MySQL:
+    image: "mysql:5.7.15"
+    environment:
+      MYSQL_ROOT_PASSWORD: mysqlroot
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin!
+    volumes: 
+      - $PWD/data:/var/lib/mysql
+    ports: 
+      - "3306:3306"
