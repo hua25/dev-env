@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  local-postgreSQL:
+    image: postgres:9.5
+    environment:
+      POSTGRES_USER: "postgres"
+      POSTGRES_PASSWORD: "p0stgr@s"
+      POSTGRES_DB: "dev_db"
+    volumes: 
+      - $PWD/mydata:/var/lib/postgresql/data
+    ports: 
+      - "5432:5432"

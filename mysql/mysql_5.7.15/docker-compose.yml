@@ -8,6 +8,6 @@ services:
       MYSQL_USER: admin
       MYSQL_PASSWORD: admin!
     volumes: 
-      - $PWD/data:/var/lib/mysql
+      - $PWD/mydata:/var/lib/mysql
     ports: 
       - "3306:3306"

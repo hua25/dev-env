@@ -1,0 +1,40 @@
+version: '3'
+
+networks: 
+  activemq_cluster:
+
+services: 
+  activemq_node_a:
+    image: "webcenter/activemq:5.14.3"
+    networks: 
+      - activemq_cluster
+    volumes: 
+      - $PWD/log/a:/var/log/activemq
+      - $PWD/node_a/activemq.xml:/opt/activemq/conf/activemq.xml
+    ports: 
+      - "61616:61616"
+      - "8161:8161"
+
+  activemq_node_b:
+    image: "webcenter/activemq:5.14.3"
+    networks: 
+      - activemq_cluster
+    volumes: 
+      - $PWD/mydata/activemq:/data/activemq
+      - $PWD/log/b:/var/log/activemq
+      - $PWD/node_b/activemq.xml:/opt/activemq/conf/activemq.xml
+    ports: 
+      - "61617:61616"
+      - "8162:8161"
+
+  activemq_node_c:
+    image: "webcenter/activemq:5.14.3"
+    networks: 
+      - activemq_cluster
+    volumes: 
+      - $PWD/mydata/activemq:/data/activemq
+      - $PWD/log/c:/var/log/activemq
+      - $PWD/node_c/activemq.xml:/opt/activemq/conf/activemq.xml
+    ports: 
+      - "61618:61616"
+      - "8163:8161"  
